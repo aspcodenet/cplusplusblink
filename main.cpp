@@ -27,13 +27,15 @@ int main(void){
     lcd.GoTo(0,0);
     lcd.WriteText("Tjena moss ");
 
-    AnalogPin ntc(0);
+    Ntc ntc(AnalogPin(0));
 
     char text[20];
 
     while(1){
-		uint16_t value = ntc.analogRead(); // 0 - 1023
-        sprintf(text, "%d ", value);
+		//uint16_t value = ntc.analogRead(); // 0 - 1023
+        int d = (int)(ntc.getTemp() * 100)/100; //5.23 523
+        sprintf(text, "%d ", d);
+        lcd.GoTo(0,0);
         lcd.WriteText(text);
         _delay_ms(1000);
     }

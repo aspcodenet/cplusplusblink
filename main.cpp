@@ -3,7 +3,9 @@
 #include <avr/interrupt.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include "lcd.h"
+#include "AnalogPin.h"
 
 // https://wokwi.com/projects/365067824797777921
 
@@ -13,10 +15,7 @@
 #define LED_PIN 2
 #define BUTTON_PIN 1
 
-#define BIT_SET(a, b) ((a) |= (1ULL << (b)))
-#define BIT_CLEAR(a,b) ((a) &= ~(1ULL<<(b)))
-#define BIT_FLIP(a,b) ((a) ^= (1ULL<<(b)))
-#define BIT_CHECK(a,b) (!!((a) & (1ULL<<(b)))) 
+
 
 
 #define BUTTON_IS_CLICKED(PINB,BUTTON_PIN) !BIT_CHECK(PINB,BUTTON_PIN)
@@ -28,8 +27,14 @@ int main(void){
     lcd.GoTo(0,0);
     lcd.WriteText("Tjena moss ");
 
+    AnalogPin ntc(0);
+
+    char text[20];
 
     while(1){
+		uint16_t value = ntc.analogRead(); // 0 - 1023
+        sprintf(text, "%d ", value);
+        lcd.WriteText(text);
         _delay_ms(1000);
     }
     return 0;

@@ -35,6 +35,7 @@ int main(void){
 		//uint16_t value = ntc.analogRead(); // 0 - 1023
         int d = (int)(ntc.getTemp() * 100)/100; //5.23 523
         sprintf(text, "%d ", d);
+        lcd.Clear();
         lcd.GoTo(0,0);
         lcd.WriteText(text);
         _delay_ms(1000);

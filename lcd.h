@@ -91,10 +91,7 @@
 
 class HD44780 {
 public:
-	HD44780() {
-		position_x = 0;
-		position_y = 0;
-	}
+	HD44780();
 
 	void WriteCommand(unsigned char);
 	void WriteData(unsigned char);
@@ -113,7 +110,8 @@ private:
 	int position_y;
 	void OutNibble(unsigned char);
 	void Write(unsigned char);
+	void Initialize(void);
 
-};
+}; 
 
 #endif /* HD44780_H_ */

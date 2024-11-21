@@ -6,9 +6,9 @@
 
 // https://wokwi.com/projects/365047092561218561
 
-// B (digital pin 8 to 13)
+// PORTB B (digital pin 8 to 13)
 // C (analog input pins)
-// D (digital pins 0 to 7)
+// PORTD D (digital pins 0 to 7)
 #define LED_PIN 2
 #define BUTTON_PIN 1
 

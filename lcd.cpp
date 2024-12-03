@@ -89,7 +89,7 @@ void HD44780::OutNibble(unsigned char nibble) {
     LCD_DB4_PORT |= LCD_DB4;
   else
     LCD_DB4_PORT &= ~LCD_DB4;
-  if (nibble & 2)
+  if (nibble & 2) 
     LCD_DB5_PORT |= LCD_DB5;
   else
     LCD_DB5_PORT &= ~LCD_DB5;

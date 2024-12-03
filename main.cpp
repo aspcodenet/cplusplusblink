@@ -6,7 +6,7 @@
 #include "lcd.h"
 #include "uart.h"
 
-// https://wokwi.com/projects/383283130065573889
+// https://wokwi.com/projects/416241646559459329
 
 // PORTB B (digital pin 8 to 13)
 // C (analog input pins)
@@ -22,19 +22,19 @@
 
 #define BUTTON_IS_CLICKED(PINB,BUTTON_PIN) !BIT_CHECK(PINB,BUTTON_PIN)
 
-
+ 
 
 int main(void){
-   // init_serial();
+    init_serial();
     HD44780 lcd;
 
     lcd.Initialize(); // Initialize the LCD
     lcd.Clear();      // Clear the LCD
 
     lcd.WriteText((char *)"Hej hej");
-    // printf("Hej hej\n");
-    // int r = 12;
-    // printf("Hej 2 %d\n",r);
+    printf("Hej hej\n");
+    int r = 12;
+    printf("Hej 2 %d\n",r);
     // // //Sätt till INPUT_PULLUP
     // BIT_CLEAR(DDRB,BUTTON_PIN); // INPUT MODE
     // BIT_SET(PORTB,BUTTON_PIN); 

@@ -25,17 +25,17 @@
 
 
 int main(void){
-    init_serial();
+   // init_serial();
     HD44780 lcd;
 
     lcd.Initialize(); // Initialize the LCD
     lcd.Clear();      // Clear the LCD
 
     lcd.WriteText((char *)"Hej hej");
-    printf("Hej hej\n");
-    int r = 12;
-    printf("Hej 2 %d\n",r);
-    // //Sätt till INPUT_PULLUP
+    // printf("Hej hej\n");
+    // int r = 12;
+    // printf("Hej 2 %d\n",r);
+    // // //Sätt till INPUT_PULLUP
     // BIT_CLEAR(DDRB,BUTTON_PIN); // INPUT MODE
     // BIT_SET(PORTB,BUTTON_PIN); 
 

@@ -57,10 +57,14 @@ void HD44780::Initialize(void) {
   LCD_DB4_DIR |= LCD_DB4;
   LCD_DB5_DIR |= LCD_DB5;
   LCD_DB6_DIR |= LCD_DB6;
-  LCD_DB7_DIR |= LCD_DB7;
+  LCD_DB7_DIR |= LCD_DB7;'
+  
+  LCD_RS_PORT = LCD_RS_PORT
+    & ~(1 << LCD_E)
+    & ~(1 << LCD_RS);
 
   // Initialization sequence
-  _delay_ms(15);
+  _delay_ms(50);
   OutNibble(0x03);
   _delay_ms(5);
   OutNibble(0x03);
@@ -109,8 +113,10 @@ void HD44780::OutNibble(unsigned char nibble) {
 
 void HD44780::Write(unsigned char byte) {
   OutNibble(byte >> 4);
+  _delay_ms(5);
   OutNibble(byte);
-}
+ _delay_ms(5);
+ }
 
 #define LCD_SETCGRAMADDR 0x40
 void HD44780::CreateChar(uint8_t location, uint8_t charArray[]) {
